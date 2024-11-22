@@ -1,6 +1,6 @@
 from list_of_lists_sorter import list_of_lists_sorter
 from list_of_string_lists_sorter import list_of_string_lists_sorter
-from list_of_xs_sorter import  list_of_xs_sorter
+from list_of_xs_sorter import list_of_xs_sorter
 from list_of_dicts_sorter import list_of_dicts_sorter
 
 output_list_with_header = [
@@ -32,14 +32,14 @@ sorter.clear_sort_fields()
 sorter.add_sort_field_by_position(6, 'datestringdel-')
 sorter.has_header = False
 sorter.reverse_sort = True
-sorter.list_of_lists =output_list_without_header
+sorter.list_of_lists = output_list_without_header
 print(sorter.sort())
 
 sorter.clear_sort_fields()
 sorter.add_multiple_fields_by_position([(6, 'datestringdel-'), (4)])
 sorter.has_header = False
 sorter.reverse_sort = False
-sorter.list_of_lists =output_list_without_header
+sorter.list_of_lists = output_list_without_header
 print(sorter.sort())
 
 sorter = list_of_lists_sorter(output_list_with_header)
@@ -51,7 +51,7 @@ sorter.clear_sort_fields()
 sorter.add_sort_field_by_position(6)
 sorter.has_header = False
 sorter.reverse_sort = True
-sorter.list_of_lists =output_list_without_header
+sorter.list_of_lists = output_list_without_header
 print(sorter.sort())
 
 
@@ -79,8 +79,8 @@ surprise_me_sorter = list_of_xs_sorter([
 ])
 surprise_me_sorter.sort_factory()
 surprise_me_sorter.add_sort_field_by_field_name('two', 'string')
-z= surprise_me_sorter.sort()
-#print(z)
+z = surprise_me_sorter.sort()
+# print(z)
 
 surprise_me_sorter = list_of_xs_sorter([
     ['one', 'two'],
@@ -110,16 +110,14 @@ lod_sorter_list = list_of_dicts_sorter([
     {'one': '1', 'two': '4'}
 ])
 lod_sorter_list.add_sort_field_by_key_name('two', 'string')
-z=lod_sorter_list.sort()
+z = lod_sorter_list.sort()
 print(z)
 lod_sorter_list.output_as_list_of = list
-z= lod_sorter_list.sort()
+z = lod_sorter_list.sort()
 print(z)
 lod_sorter_list.output_as_list_of = str
-z= lod_sorter_list.sort()
+z = lod_sorter_list.sort()
 print(z)
-
-
 
 print("list of lists sorted and output as a list of dicts or a list of string lists")
 sorter = list_of_lists_sorter(output_list_with_header)
@@ -134,8 +132,6 @@ sorter.add_sort_field_by_header_field_name('six', 'datestringdel-')
 sorter.output_as_list_of_string_delimiter = ' '
 sorter.output_as_list_of = str
 print(sorter.sort())
-
-
 
 print("list of string lists sorted and output as a list of dicts or a list of lists")
 output_list_of_string_lists_with_header = [
@@ -163,6 +159,3 @@ sorter.add_sort_field_by_header_field_name('six', 'datestringdel-')
 sorter.reverse_sort = False
 sorter.output_as_list_of = list
 print(sorter.sort())
-
-
-
