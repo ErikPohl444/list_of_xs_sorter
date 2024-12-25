@@ -1,6 +1,7 @@
 from unittest import TestCase
 from list_of_dicts_sorter import list_of_dicts_sorter
 
+
 class ListOfDictsTests(TestCase):
 
     def testCaseBasicInitialization(self):
@@ -24,7 +25,7 @@ class ListOfDictsTests(TestCase):
             {'one': 1, 'two': '1-1-14'}
         ]
         lodsorter = list_of_dicts_sorter(output_list_of_dicts)
-        lodsorter.add_sort_field_by_key_name('two','datestringdelimiter-')
+        lodsorter.add_sort_field_by_key_name('two', 'datestringdelimiter-')
         sorted_output = lodsorter.sort()
         self.assertEqual(sorted_output, [
             {'one': 1, 'two': '1-1-14'},
@@ -63,4 +64,3 @@ class ListOfDictsTests(TestCase):
             {'one': 1, 'two': '4'},
             {'one': 1, 'two': '5'}
         ])
-

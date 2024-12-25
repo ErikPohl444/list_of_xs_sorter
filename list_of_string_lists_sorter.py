@@ -20,12 +20,12 @@ __status__ = "Beta"
 
 
 class list_of_string_lists_sorter:
-    '''
+    """
     This class allows you to flexibly define and execute sorts
     on lists of string lists
     with and without headers
     with and without reverse sort
-    '''
+    """
     sort_field = namedtuple('sort_field', 'position field_type')
 
     STRINGDATEPREFIX = 'datestringdelimiter'
@@ -41,10 +41,10 @@ class list_of_string_lists_sorter:
     def add_sort_field_by_position(
             self, column_position, sort_field_type="string"
     ):
-        '''
+        """
         add a sort field to the sort field criteria by position in the list,
         sort field type default is string
-        '''
+        """
         self.sort_fields.append(
             self.sort_field(
                 column_position,
@@ -55,10 +55,10 @@ class list_of_string_lists_sorter:
     def add_sort_field_by_header_field_name(
             self, field_name, sort_field_type="string"
     ):
-        '''
+        """
         add a sort field to the sort field criteria by header field
         name in the list, sort field type default is string
-        '''
+        """
         if self.has_header:
             self.sort_fields.append(
                 self.sort_field(
@@ -70,10 +70,10 @@ class list_of_string_lists_sorter:
             )
 
     def add_multiple_fields_by_position(self, position_type_list):
-        '''
+        """
         add a multiple sort fields to the sort field criteria
         by position in the list, sort field type default is string
-        '''
+        """
         for sort_field_add in position_type_list:
             if type(sort_field_add) is not tuple:
                 sort_field_add = (sort_field_add, "string")
@@ -85,10 +85,10 @@ class list_of_string_lists_sorter:
             )
 
     def add_multiple_fields_by_header_field(self, header_type_list):
-        '''
+        """
         add a multiple sort fields to the sort field criteria
         by header field name in the list, sort field type default is string
-        '''
+        """
         for sort_field_add in header_type_list:
             if type(sort_field_add) is not tuple:
                 sort_field_add = (sort_field_add, "string")
@@ -103,25 +103,25 @@ class list_of_string_lists_sorter:
             )
 
     def clear_sort_fields(self):
-        '''
+        """
         clear the sort fields criteria list
-        '''
+        """
         self.sort_fields = []
 
     def field_type_convert(self, raw, field_type):
-        '''
+        """
         convert the field data from string to a date if applicable
-        '''
+        """
         datetuple = namedtuple('datetuple', 'month day year')
         if field_type.startswith(self.STRINGDATEPREFIX):
             return datetuple(*raw.split(field_type[-1]))
         return raw
 
     def sort(self):
-        '''
+        """
         execute the sort based on all of the criteria
         and setups in the instantiation
-        '''
+        """
         xvert_list = [
             string_list.split(self.string_list_delimiter)
             for string_list in self.list_of_string_lists
